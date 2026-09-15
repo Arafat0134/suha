@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
+    padding: 40px;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 3em;
+    color: #ff6b6b;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.content {
+    margin: 30px 0;
+}
+
+/* Balloons */
+.balloons {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    height: 120px;
+}
+
+.balloon {
+    width: 50px;
+    height: 70px;
+    border-radius: 50% 50% 50% 0;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 30px;
+    background: #333;
+}
+
+.balloon.red {
+    background: #ff6b6b;
+    animation-delay: 0s;
+}
+
+.balloon.blue {
+    background: #4ecdc4;
+    animation-delay: 0.2s;
+}
+
+.balloon.yellow {
+    background: #ffd93d;
+    animation-delay: 0.4s;
+}
+
+.balloon.green {
+    background: #6bcf7f;
+    animation-delay: 0.6s;
+}
+
+.balloon.purple {
+    background: #c984ff;
+    animation-delay: 0.8s;
+}
+
+/* Cake */
+.cake {
+    margin: 30px 0;
+    position: relative;
+}
+
+.cake-layer {
+    width: 150px;
+    height: 80px;
+    background: linear-gradient(to bottom, #f4a261, #e76f51);
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.cake-layer::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: #f4d35e;
+    border-radius: 5px 5px 0 0;
+}
+
+.candles {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+}
+
+.candle {
+    width: 8px;
+    height: 50px;
+    background: #f0e6d2;
+    border-radius: 5px;
+    position: relative;
+}
+
+.candle::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 20px;
+    background: #ff6b6b;
+    border-radius: 50% 50% 50% 0;
+    animation: flicker 0.3s ease-in-out infinite;
+}
+
+/* Message */
+.message {
+    margin: 30px 0;
+}
+
+.message h2 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.message p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Button */
+.party-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 20px 0;
+}
+
+.party-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.party-button:active {
+    transform: scale(0.98);
+}
+
+/* Footer */
+.footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+    color: #999;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes confetti-fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .message h2 {
+        font-size: 1.2em;
+    }
+}
